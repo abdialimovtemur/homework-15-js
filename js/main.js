@@ -129,12 +129,32 @@ function removeSpaces(str) {
 
 // 6. Berilgan massivdagi eng ko'p takrorlangan elementni toping.
 
-let mostArr = [1, 3, 2, 1, 4, 1, 3, 1, 5, 1]
-for (let i = 0; i < array.length; i++) {
+
+function mostFrequentElement(arr) {
+    let map = arr.reduce((map, current) => {
+        map[current] = (map[current] || 0) + 1;
+        return map;
+    }, {});
+    let num = 0;
+    let max = 0;
     
-    
+    for (let key in map) {
+        if (map[key] > max) {
+            max = map[key];
+            num = key;
+        }
+    }
+    return Number(num);
+
 }
-console.log(mostArr)
+
+console.log(mostFrequentElement([1, 3, 2, 1, 4, 1, 3,3,3,3, 5, 1])); 
+
+
+
+
+
+
 
 // 7. Berilgan qator ichidagi barcha raqamlarning yig'indisini hisoblang.
 
